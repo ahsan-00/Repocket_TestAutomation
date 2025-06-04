@@ -29,17 +29,7 @@ class GoogleSignPage(BasePage):
     CHOOSE_ACCOUNT_XPATH = "//android.widget.LinearLayout[@resource-id='com.google.android.gms:id/account_picker_container']"
     NEXT_BUTTON_XPATH = "//android.widget.Button[@text='NEXT']"
 
-    def tap_continew_with_google(self):
-        try:
-            google_button = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((AppiumBy.XPATH, self.GOOGLE_BUTTON_XPATH))
-            )
-            google_button.click()
-            self.logger.info("Continue with Google button clicked successfully.")
-            return True
-        except Exception as e:
-            self.logger.error("Failed to click continue with Google button: " + str(e))
-            return False
+
         
     def tap_choose_account(self):
         try:

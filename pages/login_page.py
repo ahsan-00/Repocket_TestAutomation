@@ -77,7 +77,18 @@ class LoginPage(BasePage):
         except Exception as e:
             self.logger.error("Failed to click continue with email button: " + str(e))
             return False
-    
+        
+    def tap_continew_with_google(self):
+        try:
+            google_button = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((AppiumBy.XPATH, self.GOOGLE_BUTTON_XPATH))
+            )
+            google_button.click()
+            self.logger.info("Continue with Google button clicked successfully.")
+            return True
+        except Exception as e:
+            self.logger.error("Failed to click continue with Google button: " + str(e))
+            return False
 
     def tap_detail(self):
         try:
