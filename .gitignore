@@ -6,3 +6,4 @@ venv/
 *.pyo
 *.pyc
 ./logs/
+**/__pycache__/
