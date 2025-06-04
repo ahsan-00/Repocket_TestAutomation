@@ -1,0 +1,67 @@
+# Will be used to run the CI pipeline for Repocket test automation using GitHub Actions.
+# Stay with me for a moment, and I will complete in short.
+name: CI Pipeline for Repocket Test Automation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Python 3.10
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # Install dependencies from requirements.txt
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install Appium-Python-Client
+
+      # Set up Android emulator for Appium
+      - name: Set up Android Emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29  # Android 10
+          target: google_apis
+          arch: x86_64
+          profile: pixel_4
+          emulator-options: -no-snapshot -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
+          disable-animations: true
+
+      # Start Appium server
+      - name: Start Appium Server
+        run: |
+          npm install -g appium
+          appium --log-level info --use-plugins=images,execute-driver &
+          sleep 10  # Wait for Appium server to start
+
+      # Run Pytest with HTML report
+      - name: Run Pytest
+        env:
+          PYTHONPATH: .  # Ensure utils/ and pages/ are in the Python path
+        run: |
+          pytest AIL/test_client_mgt/ --html=report.html --self-contained-html
+
+      # Upload test report as artifact
+      - name: Upload Pytest report
+        if: always()  # Upload even if tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-report
+          path: report.html
+          retention-days: 7
