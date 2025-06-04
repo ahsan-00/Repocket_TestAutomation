@@ -1,0 +1,99 @@
+2025-06-03 18:16:03,876 - INFO - Permission dialog appeared and 'Allow' button was clicked.
+2025-06-03 18:16:05,125 - INFO - Explore & Earn button clicked successfully.
+2025-06-03 18:16:06,947 - INFO - Continue with Email button clicked successfully.
+2025-06-03 18:16:07,077 - INFO - Forgot password element is visible.
+2025-06-03 18:16:08,163 - INFO - Clicked on element: //android.view.View[@content-desc='Forget password?   ']
+2025-06-03 18:16:18,390 - ERROR - Failed to click email: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:16:28,556 - ERROR - Failed to click Send button: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:16:40,285 - INFO - Permission dialog appeared and 'Allow' button was clicked.
+2025-06-03 18:16:41,955 - INFO - Explore & Earn button clicked successfully.
+2025-06-03 18:16:43,775 - INFO - Continue with Email button clicked successfully.
+2025-06-03 18:16:43,912 - INFO - Forgot password element is visible.
+2025-06-03 18:16:44,993 - INFO - Clicked on element: //android.view.View[@content-desc='Forget password?   ']
+2025-06-03 18:16:55,339 - ERROR - Failed to click email: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:17:05,777 - ERROR - Failed to click Send button: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:17:18,700 - INFO - Permission dialog appeared and 'Allow' button was clicked.
+2025-06-03 18:17:20,692 - INFO - Explore & Earn button clicked successfully.
+2025-06-03 18:17:21,794 - INFO - Continue with Email button clicked successfully.
+2025-06-03 18:17:21,992 - INFO - Forgot password element is visible.
+2025-06-03 18:17:22,244 - INFO - Clicked on element: //android.view.View[@content-desc='Forget password?   ']
+2025-06-03 18:17:32,412 - ERROR - Failed to click email: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:17:42,990 - ERROR - Failed to click Send button: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:24:22,594 - INFO - Permission dialog appeared and 'Allow' button was clicked.
+2025-06-03 18:24:23,791 - INFO - Explore & Earn button clicked successfully.
+2025-06-03 18:24:25,628 - INFO - Continue with Email button clicked successfully.
+2025-06-03 18:24:25,741 - INFO - Forgot password element is visible.
+2025-06-03 18:24:25,940 - INFO - Clicked on element: //android.view.View[@content-desc='Forget password?   ']
+2025-06-03 18:24:36,032 - ERROR - Failed to click email: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:24:36,177 - INFO - Send button is displayed.
+2025-06-03 18:24:36,744 - INFO - Send button clicked successfully.
+2025-06-03 18:24:48,945 - INFO - Permission dialog appeared and 'Allow' button was clicked.
+2025-06-03 18:24:50,920 - INFO - Explore & Earn button clicked successfully.
+2025-06-03 18:24:52,028 - INFO - Continue with Email button clicked successfully.
+2025-06-03 18:24:52,189 - INFO - Forgot password element is visible.
+2025-06-03 18:24:53,289 - INFO - Clicked on element: //android.view.View[@content-desc='Forget password?   ']
+2025-06-03 18:25:03,541 - ERROR - Failed to click email: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:25:03,693 - INFO - Send button is displayed.
+2025-06-03 18:25:04,266 - INFO - Send button clicked successfully.
+2025-06-03 18:25:17,049 - INFO - Permission dialog appeared and 'Allow' button was clicked.
+2025-06-03 18:25:19,010 - INFO - Explore & Earn button clicked successfully.
+2025-06-03 18:25:20,145 - INFO - Continue with Email button clicked successfully.
+2025-06-03 18:25:20,299 - INFO - Forgot password element is visible.
+2025-06-03 18:25:21,414 - INFO - Clicked on element: //android.view.View[@content-desc='Forget password?   ']
+2025-06-03 18:25:31,730 - ERROR - Failed to click email: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\ahsan\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\ahsan\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+2025-06-03 18:25:31,893 - INFO - Send button is displayed.
+2025-06-03 18:25:32,460 - INFO - Send button clicked successfully.

@@ -1,0 +1,8 @@
+Appium
+Appium-Python-Client
+pytest
+pyyaml
+pyjson
+pytest-xdist
+selenium>=4.0.0
+pytest-html

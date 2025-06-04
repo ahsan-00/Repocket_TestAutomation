@@ -1,0 +1,16 @@
+{
+    "siname": "###735GeoNode",
+    "siemail": "@@@testmah007@gmail.com",
+    "sipassword": "abc",
+    "scipassword": "abc",
+    
+    "sname": "GeoNode",
+    "semail": "testmah007@gmail.com",
+    "spassword": "Prod!1234",
+    "scpassword": "Prod!1234",
+    
+    "invalid_email": "@@@testmah007@gmail.com",
+    
+    "email": "khaled@geonode.com",
+    "password": "Prod!1234"
+}

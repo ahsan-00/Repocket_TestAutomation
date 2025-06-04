@@ -1,0 +1,21 @@
+# config/config.yaml
+
+appium:
+  server_url: "http://127.0.0.1:4723/"
+
+android:
+  platformName: "Android"
+  platformVersion: "16"
+  # deviceName: "YXBMUCBARW4POB69"
+  deviceName: "Pixel_9_Pro_API_36"  # Emulator name in Android Studio
+  app: "/app/Repocket.apk"
+  automationName: "UiAutomator2"
+  appPackage: "com.app.repocket"     # Replace with actual package
+  appActivity: ".MainActivity"  
+
+ios:
+  platformName: "iOS"
+  platformVersion: "16.4"
+  deviceName: "iPhone Simulator"
+  app: "/path/to/repocket-ios.app"
+  automationName: "XCUITest"
