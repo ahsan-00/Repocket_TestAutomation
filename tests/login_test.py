@@ -27,15 +27,11 @@ def test_valid_login(driver):
 
     # Handle permission dialog if it appears
     permission_dialog.allow_permission_dialog()
-    # login_page.handle_permission_dialog()
     login_page.tap_earn()
     login_page.tap_continue_with_email()
-    # login_page.tap_continue_with_email()
     login_page.verify_forgot_password()
     login_page.enter_email(email)
     login_page.enter_password(password)
     login_page.tap_eye_button()
     login_page.tap_login()
-
-    # Assert login success
-    # assert login_page.is_login_successful(), "Login failed: Dashboard not found"
+    login_page.is_login_successful()

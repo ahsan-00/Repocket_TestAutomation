@@ -11,7 +11,7 @@ class LoginPage(BasePage):
     # Locators
     ALLOW_BUTTON_XPATH = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_allow_button']"
     DENY_BUTTON_XPATH = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_deny_button']"
-    DETAIL_BUTTON_ID = "com.android.permissioncontroller:id/detail_button"
+    DETAIL_BUTTON_XPATH = "//android.widget.ImageView[@content-desc='Details Estimated task time: 5 seconds']"
 
 
     HOME_BUTTON_XPATH = "//android.widget.ImageView[@content-desc='Tab 1 of 4']"
@@ -26,7 +26,7 @@ class LoginPage(BasePage):
     PASSWORD_FIELD_XPATH = "//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]"
     EYE_BUTTON_XPATH = "//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]/android.widget.ImageView"
     LOGIN_BUTTON_XPATH = "//android.widget.Button[@content-desc='login']" 
-    DASHBOARD_ELEMENT_ID = "dashboard_element_id"  # Update with real ID
+    DASHBOARD_ELEMENT_XPATH = "//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ImageView[2]"  # Update with real ID
     FORGOT_PASSWORD_XPATH = "//android.view.View[@content-desc='Forget password?   ']"
 
     def handle_permission_dialog(self):
@@ -93,7 +93,7 @@ class LoginPage(BasePage):
     def tap_detail(self):
         try:
             detail_button = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((AppiumBy.XPATH, self.DETAIL_BUTTON_ID))
+                EC.element_to_be_clickable((AppiumBy.XPATH, self.DETAIL_BUTTON_XPATH))
             )
             detail_button.click()
             self.logger.info("Detail button clicked successfully.")
@@ -163,12 +163,14 @@ class LoginPage(BasePage):
             self.logger.error("Failed to click Login button: " + str(e))
             return False
         
-
     def is_login_successful(self):
         try:
-            return self.is_element_present(AppiumBy.ID, self.DASHBOARD_ELEMENT_ID)
-        except Exception:
-            return False
-
-    def tap_forgot_password(self):
-        self.click(AppiumBy.XPATH, self.FORGOT_PASSWORD_XPATH)
+            dashboard_element = WebDriverWait(self.driver, 10).until(
+                EC.visibility_of_element_located((AppiumBy.XPATH, self.DASHBOARD_ELEMENT_XPATH))
+            )
+            if dashboard_element.is_displayed():
+                self.logger.info("Login successful: Dashboard element is found.")
+                return True
+        except Exception as e:
+            self.logger.error("Login failed: Dashboard not found. " + str(e))
+        return False

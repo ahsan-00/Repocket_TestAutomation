@@ -16,7 +16,7 @@ class ExploreandEarn(BasePage):
     ACTIVE_XPATH = "//android.view.View[@content-desc='Active']"
     HISTORY_XPATH = "//android.view.View[@content-desc='History']"
     LIST_XPATH = "//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View"
-    OFFERS_XPATH = "//android.view.View[@content-desc='Share Leftover bandwidth offer $0.10']"
+    OFFERS_XPATH = "//android.view.View[contains(@content-desc, 'Share Leftover bandwidth')]"
     NO_OFFERS_MESSAGE_XPATH = "//android.view.View[@content-desc='Nothing found']"
     SEARCH_FIELD_XPATH = "//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[1]"
     FILTER_BUTTON_XPATH = "//android.widget.ImageView[@content-desc='Filters']"
@@ -32,10 +32,10 @@ class ExploreandEarn(BasePage):
                 EC.visibility_of_element_located((AppiumBy.XPATH, self.TITLE_XPATH))
             )
             if sub_update.is_displayed():
-                self.logger.info("Subscription update element is visible.")
+                self.logger.info("Explore & earn is visible.")
                 return True
         except Exception as e:
-            self.logger.warning("Subscription update element not visible: " + str(e))
+            self.logger.warning("Explore & earn not visible: " + str(e))
         return False
     
     def click_available(self):
@@ -78,10 +78,10 @@ class ExploreandEarn(BasePage):
                 EC.visibility_of_element_located((AppiumBy.XPATH, self.LIST_XPATH))
             )
             if list_element.is_displayed():
-                self.logger.info("List element is visible.")
+                self.logger.info("List is visible.")
                 return True
         except Exception as e:
-            self.logger.warning("List element not visible: " + str(e))
+            self.logger.warning("List not visible: " + str(e))
         return False
     
     def validate_offers(self):
@@ -90,10 +90,10 @@ class ExploreandEarn(BasePage):
                 EC.visibility_of_element_located((AppiumBy.XPATH, self.OFFERS_XPATH))
             )
             if offers_element.is_displayed():
-                self.logger.info("Offers element is visible.")
+                self.logger.info("Offer is visible.")
                 return True
         except Exception as e:
-            self.logger.warning("Offers element not visible: " + str(e))
+            self.logger.warning("Offer not visible: " + str(e))
         return False
     
     def validate_offers_in_tab(self, tab_name):
@@ -110,7 +110,9 @@ class ExploreandEarn(BasePage):
 
         try:
             # Check for offers
+            time.sleep(2)  # Wait for offers to load
             offers = WebDriverWait(self.driver, 10).until(
+                # time.sleep(2)  # Wait for offers to load
                 EC.presence_of_all_elements_located((AppiumBy.XPATH, self.OFFERS_XPATH))
             )
             if offers:

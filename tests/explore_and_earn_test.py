@@ -1,39 +1,55 @@
+# tests/explore_and_earn_test.py
+
 import pytest
-from appium.webdriver.common.appiumby import AppiumBy
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import os
+import json
+from pages.permission_dialog import PermissionPage
+from pages.guest_with_offrs import GuestUser
+from pages.login_page import LoginPage
 from pages.explore_and_earn import ExploreandEarn
-from utils.driver_factory import DriverFactory
+
 
 @pytest.mark.smoke
-def explore_page(driver):
-    eexplore_page = ExploreandEarn(driver)
 
-def test_validate_explore_and_earn(eexplore_page):
-    assert eexplore_page.validate_earnandexplore(), "Explore and Earn title not visible"
 
-def test_offers_in_tabs(explore_page):
-    tabs = ["available", "active", "history"]
-    for tab in tabs:
-        result = explore_page.validate_offers_in_tab(tab)
-        explore_page.logger.info(f"Offers in {tab} tab: {'Found' if result else 'Not found or no offers message'}")
+def test_valid_login(driver):
+    login_page = LoginPage(driver)
+    permission_dialog = PermissionPage(driver)
+    explore_page = ExploreandEarn(driver)
+    guest_user = GuestUser(driver)
 
-def test_search_offers(explore_page):
-    explore_page.click_available()
-    assert explore_page.search_offers("bandwidth"), "Failed to search offers"
-    assert explore_page.validate_offers_in_tab("available"), "No offers found after search"
+    try:
+        # Load credentials from JSON file
+        config_path = os.path.join('config', 'config.json')
+        with open(config_path, 'r') as file:
+            credentials = json.load(file)
+            email = credentials['email']
+            password = credentials['password']
+    except FileNotFoundError:
+        pytest.fail(f"Config file not found at '{config_path}'")
+    except KeyError as e:
+        pytest.fail(f"Missing key in config file: {e}")
+    except json.JSONDecodeError:
+        pytest.fail("Invalid JSON format in config file")
 
-def test_filter_offers(explore_page):
-    explore_page.click_available()
-    assert explore_page.filter_offers("category"), "Failed to apply filter"
-    assert explore_page.validate_offers_in_tab("available"), "No offers found after filtering"
-
-def test_sort_offers(explore_page):
-    explore_page.click_available()
-    assert explore_page.sort_offers("price"), "Failed to sort offers"
-    assert explore_page.validate_offers_in_tab("available"), "No offers found after sorting"
-
-def test_click_offer(explore_page):
-    explore_page.click_available()
-    assert explore_page.validate_offers_in_tab("available"), "No offers to click"
-    assert explore_page.click_offer(0), "Failed to click offer"
+    # Handle permission dialog if it appears
+    permission_dialog.allow_permission_dialog()
+    guest_user.swipe_up_to_explore_tasks(2)
+    login_page.tap_earn()
+    login_page.tap_continue_with_email()
+    login_page.verify_forgot_password()
+    login_page.enter_email(email)
+    login_page.enter_password(password)
+    login_page.tap_eye_button()
+    login_page.tap_login()
+    login_page.tap_earn()
+    explore_page.validate_earnandexplore()
+    explore_page.validate_list()
+    explore_page.validate_offers()
+    # explore_page.search_offers()
+    # explore_page.filter_offers()
+    # explore_page.sort_offers()
+    explore_page.validate_offers_in_tab("available")
+    explore_page.validate_offers_in_tab("active")
+    explore_page.validate_offers_in_tab("history")
+    

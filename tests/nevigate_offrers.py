@@ -1,42 +1,53 @@
 # tests/navigate_offers_test.py
 
 import pytest
-
+import os
+import json
 from pages.permission_dialog import PermissionPage
 from pages.guest_with_offrs import GuestUser
 from pages.login_page import LoginPage
-from tests.login_test import test_valid_login
+from pages.explore_and_earn import ExploreandEarn
+
 
 @pytest.mark.smoke
+
+
 def test_valid_login(driver):
-    permission_page = PermissionPage(driver)
-    guest_user_page = GuestUser(driver)
     login_page = LoginPage(driver)
+    permission_dialog = PermissionPage(driver)
+    explore_page = ExploreandEarn(driver)
+    guest_user = GuestUser(driver)
+
+    try:
+        # Load credentials from JSON file
+        config_path = os.path.join('config', 'config.json')
+        with open(config_path, 'r') as file:
+            credentials = json.load(file)
+            email = credentials['email']
+            password = credentials['password']
+    except FileNotFoundError:
+        pytest.fail(f"Config file not found at '{config_path}'")
+    except KeyError as e:
+        pytest.fail(f"Missing key in config file: {e}")
+    except json.JSONDecodeError:
+        pytest.fail("Invalid JSON format in config file")
 
     # Handle permission dialog if it appears
-    PermissionPage.validate_permission_dialog(permission_page)
-    PermissionPage.allow_permission_dialog(permission_page)
+    permission_dialog.allow_permission_dialog()
+    guest_user.swipe_up_to_explore_tasks(2)
 
-
-    PermissionPage.validate_rePocket_home(permission_page)
-    PermissionPage.validate_main_notification_icon(permission_page)
-    PermissionPage.validate_active_task(permission_page)
-
-    GuestUser.validate_slideup(guest_user_page)
-    GuestUser.swipe_up_to_explore_tasks(guest_user_page)
-    LoginPage.tap_earn(login_page)
-    LoginPage.tap_continue_with_email(login_page)
-    LoginPage.enter_email(login_page)
-    LoginPage.enter_password(login_page)
-    LoginPage.tap_login(login_page)
-    LoginPage.tap_earn(login_page)
-    
-
-
-
-
-
-
-
-
-
+    # login_page.handle_permission_dialog()
+    login_page.tap_earn()
+    login_page.tap_continue_with_email()
+    # login_page.tap_continue_with_email()
+    login_page.verify_forgot_password()
+    login_page.enter_email(email)
+    login_page.enter_password(password)
+    login_page.tap_eye_button()
+    login_page.tap_login()
+    # guest_user.swipe_up_to_explore_tasks(2)
+    login_page.tap_earn()
+    explore_page.validate_earnandexplore()
+    # explore_page.click_available("available")
+    # explore_page.click_active("active")
+    # explore_page.click_history("history")
